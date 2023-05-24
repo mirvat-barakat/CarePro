@@ -7,7 +7,7 @@ const LoginBlock = () => {
   return (
     <div className="login-block">
       <h2>LOGIN</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form >
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input type="email" id="email" name="email" />
