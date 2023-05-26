@@ -1,12 +1,30 @@
 const User = require("../Models/userModel");
 const bcrypt = require("bcrypt");
 
+const Patient = require('./models/Patient');
+
+
 exports.getPatients = async (req, res) => {
 	const patients = await User.find({ role: 'patient' });
 	res.json(patients);
 };
 
-const Patient = require('./models/Patient');
+exports.getPatientProfile = async (req, res) => {
+    const { user_id } = req.params;
+  
+    try {
+      const patient = await Patient.findOne({ user_id });
+  
+      if (!patient) {
+        return res.status(404).json({ error: 'Patient not found' });
+      }
+  
+      res.json(patient);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to retrieve patient profile' });
+    }
+  };
+  
 
 exports.addDoctorNote = async (req, res) => {
   const { user_id } = req.params;
