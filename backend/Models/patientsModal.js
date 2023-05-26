@@ -15,19 +15,19 @@ const patientDataSchema = new mongoose.Schema({
     required: true,
   },
   allergies: {
-    type: String,
+    type: [String],
     default: [],
   },
   medications: {
-    type: String,
+    type: [String],
     default: [],
   },
   preExistingConditions: {
-    type: String,
+    type: [String],
     default: [],
   },
   pastSurgeries: {
-    type: String,
+    type: [String],
     default: [],
   },
   familyMedicalHistory: {
@@ -62,6 +62,26 @@ const patientDataSchema = new mongoose.Schema({
       uploadedAt: {
         type: Date,
         default: Date.now,
+      },
+    },
+  ],
+  doctorNotes: [
+    {
+      date: {
+        type: Date,
+        default: Date.now,
+      },
+      medications: {
+        type: [String],
+        default: [],
+      },
+      note: {
+        type: String,
+        default: "",
+      },
+      message: {
+        type: String,
+        default: "",
       },
     },
   ],
