@@ -9,6 +9,7 @@ const LandingPage = () => {
       <div className="text-container">
         <h1>Title</h1>
         <p>Some text content goes here...</p>
+        <button>Get Started</button>
       </div>
       <img src={"backgroundimage.jpg"} alt="Background" />
     </div>
