@@ -6,6 +6,7 @@ const LoginBlock = () => {
 
   return (
     <div className="login-block">
+      <FontAwesomeIcon icon={faTimes} className="faicon1" />
       <h2>LOGIN</h2>
       <form >
         <div className="form-group">

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import "./styles.css";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
 
 const RegisterBlock = () => {
 
     return (
         <div className="register-block">
+            <FontAwesomeIcon icon={faTimes} className="faicon1" />
             <h2>REGISTER</h2>
             <form>
                 <div className="form-group">
