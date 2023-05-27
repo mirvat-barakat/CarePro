@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import Login from "../../Components/Login";
 import Register from "../../Components/Register";
 import "./styles.css";
@@ -10,10 +10,6 @@ const LoginPage = () => {
   const handlePatientsClick = () => {
     setShowForm(true);
   };
-  
-  const handleDeleteCancel= ()=>{
-      setShowDeleteDialog(false);
-    }
 
   return (
     <div className="background">
@@ -23,10 +19,10 @@ const LoginPage = () => {
             <img src="d.svg" alt="Left Image" />
           </div>
           <div className="image-select-middle">
-            <div className="option-box patient" >
+            <div className="option-box patient" onClick={handlePatientsClick}>
               <h2>Patients</h2>
             </div>
-            <div className="option-box doctor" >
+            <div className="option-box doctor"  onClick={handlePatientsClick}>
               <h2>Doctors</h2>
             </div>
           </div>
@@ -35,6 +31,9 @@ const LoginPage = () => {
           </div>
         </div>
         </div>
+        {showForm && (
+          <Login />
+          )}
     </div>
   );
 };
