@@ -8,8 +8,8 @@
     flex-direction: column;
     align-items: center;
     background: linear-gradient(to top, #9698db, #b2abe3, #e3e0ee, #ffffff);
-    width: 450px;
-    height: 700px;
+    width: 30%;
+    height: 80%;
     padding-top: 10px;
     border-radius: 10px;
   }
@@ -21,6 +21,7 @@
     margin-bottom: 5px;
   }
   .register-block input{
+    width:100%;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;

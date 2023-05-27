@@ -1,6 +1,9 @@
 import React from 'react';
 import "./styles.css";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 
 const LoginBlock = () => {
 
@@ -10,7 +13,7 @@ const LoginBlock = () => {
       <h2>LOGIN</h2>
       <form >
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email" >Email:</label>
           <input type="email" id="email" name="email" />
         </div>
         <div className="form-group">
