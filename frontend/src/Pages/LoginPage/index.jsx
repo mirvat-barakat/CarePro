@@ -32,7 +32,9 @@ const LoginPage = () => {
         </div>
         </div>
         {showForm && (
+          <div className="add-form-backdrop">
           <Login />
+          </div>
           )}
     </div>
   );
