@@ -5,6 +5,16 @@ import "./styles.css";
 
 const LoginPage = () => {
 
+  const [showForm, setShowForm] = useState(false);
+
+  const handlePatientsClick = () => {
+    setShowForm(true);
+  };
+  
+  const handleDeleteCancel= ()=>{
+      setShowDeleteDialog(false);
+    }
+
   return (
     <div className="background">
         <div className="block">
