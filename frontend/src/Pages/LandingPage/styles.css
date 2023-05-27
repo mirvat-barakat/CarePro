@@ -19,13 +19,38 @@
     text-align: center;
   }
   
-  h1 {
+  .h1 {
     font-size: 24px;
     margin-bottom: 10px;
+    color: black;
+    font-size: 40px;
+    font-weight:bolder;
+    animation-name: streaming;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes streaming {
+    0% {
+      text-shadow: none;
+    }
+    50% {
+      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+      text-shadow: none;
+    }
   }
   
   p {
     font-size: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: gray;
+    margin-bottom: 10px;
   }
 
   button{
