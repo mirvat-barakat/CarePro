@@ -6,11 +6,15 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
 
-const RegisterBlock = () => {
+const RegisterBlock = ({ onSubmit }) => {
+
+    const handleIconClick = () => {
+        onSubmit();
+      };
 
     return (
         <div className="register-block">
-            <FontAwesomeIcon icon={faTimes} className="faicon1" />
+            <FontAwesomeIcon icon={faTimes} className="faicon1" onClick={handleIconClick} />
             <h2>REGISTER</h2>
             <form>
                 <div className="form-group">

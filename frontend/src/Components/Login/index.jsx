@@ -5,11 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 
-const LoginBlock = () => {
+const LoginBlock = ({ onSubmit }) => {
+
+  const handleIconClick = () => {
+    onSubmit();
+  };
 
   return (
     <div className="login-block">
-      <FontAwesomeIcon icon={faTimes} className="faicon1" />
+      <FontAwesomeIcon icon={faTimes} className="faicon1" onClick={handleIconClick} />
       <h2>LOGIN</h2>
       <form >
         <div className="form-group">

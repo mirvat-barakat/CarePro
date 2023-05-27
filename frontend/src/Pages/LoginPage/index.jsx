@@ -11,6 +11,10 @@ const LoginPage = () => {
     setShowForm(true);
   };
 
+  const handleCancel= ()=>{
+    setShowForm(false);
+  }
+
   return (
     <div className="background">
         <div className="block">
@@ -33,7 +37,7 @@ const LoginPage = () => {
         </div>
         {showForm && (
           <div className="add-form-backdrop">
-          <Login />
+          <Login onSubmit={handleCancel}/>
           </div>
           )}
     </div>
