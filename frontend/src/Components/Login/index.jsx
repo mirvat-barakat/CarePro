@@ -17,8 +17,8 @@ const LoginBlock = () => {
           <input type="password" id="password" name="password" />
         </div>
         <p>Don't Have an Account? <Link to="">Sign Up Here</Link></p>
-        <button type="submit">Login</button>
       </form>
+      <button type="submit">Login</button>
     </div>
   );
 };

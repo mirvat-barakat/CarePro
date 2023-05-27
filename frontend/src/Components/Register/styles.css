@@ -1,0 +1,27 @@
+.register-block{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to top, #9698db, #b2abe3, #e3e0ee, #ffffff);
+    width: 450px;
+    height: 700px;
+    padding-top: 10px;
+    border-radius: 10px;
+  }
+  .form-group{
+    display:flex;
+    flex-direction: column;
+  }
+  .register-block label{
+    margin-bottom: 5px;
+  }
+  .register-block input{
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  } 

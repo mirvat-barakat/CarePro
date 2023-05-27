@@ -22,8 +22,8 @@ const RegisterBlock = () => {
                     <input type="password" id="password" name="password" required />
                 </div>
                 <p>Already Have an Account? <Link to="/login">Log In Here</Link></p>
-                <button type="submit">Register</button>
             </form>
+            <button type="submit">Register</button>
         </div>
     );
 };
