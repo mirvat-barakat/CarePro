@@ -1,18 +1,26 @@
 import React, { useState} from "react";
 import Login from "../../Components/Login";
+import LoginD from "../../Components/LoginA";
 import Register from "../../Components/Register";
 import "./styles.css";
 
 const LoginPage = () => {
 
   const [showForm, setShowForm] = useState(false);
+  const [showDForm, setShowDForm] = useState(false);
+
 
   const handlePatientsClick = () => {
     setShowForm(true);
   };
 
+  const handleDoctorsClick = () => {
+    setShowDForm(true);
+  };
+
   const handleCancel= ()=>{
     setShowForm(false);
+    setShowDForm(false);
   }
 
   return (
@@ -26,7 +34,7 @@ const LoginPage = () => {
             <div className="option-box patient" onClick={handlePatientsClick}>
               <h2>Patients</h2>
             </div>
-            <div className="option-box doctor"  onClick={handlePatientsClick}>
+            <div className="option-box doctor"  onClick={handleDoctorsClick}>
               <h2>Doctors</h2>
             </div>
           </div>
@@ -38,6 +46,11 @@ const LoginPage = () => {
         {showForm && (
           <div className="add-form-backdrop">
           <Login onSubmit={handleCancel}/>
+          </div>
+          )}
+        {showDForm && (
+          <div className="add-form-backdrop">
+          <LoginD onSubmit={handleCancel}/>
           </div>
           )}
     </div>
