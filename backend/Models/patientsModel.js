@@ -38,33 +38,6 @@ const patientDataSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  testResults: [
-    {
-      testName: {
-        type: String,
-      },
-      result: {
-        type: String,
-      },
-      date: {
-        type: Date,
-      },
-    },
-  ],
-  documents: [
-    {
-      name: {
-        type: String,
-      },
-      fileUrl: {
-        type: String,
-      },
-      uploadedAt: {
-        type: Date,
-        default: Date.now,
-      },
-    },
-  ],
   doctorNotes: [
     {
       date: {
