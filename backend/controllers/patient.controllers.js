@@ -12,8 +12,6 @@ exports.addPatientInformation = async (req, res) => {
       pastSurgeries,
       familyMedicalHistory,
       notes,
-      testResults,
-      documents
     } = req.body;
   
     try {
@@ -31,12 +29,11 @@ exports.addPatientInformation = async (req, res) => {
       patient.pastSurgeries = pastSurgeries;
       patient.familyMedicalHistory = familyMedicalHistory;
       patient.notes = notes;
-      patient.testResults = testResults;
-      patient.documents = documents;
   
       await patient.save();
   
       res.json({
+        status: "success",
         message: 'Patient information added successfully',
         patient: patient
       });
