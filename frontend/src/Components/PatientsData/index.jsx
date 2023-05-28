@@ -19,6 +19,39 @@ const PatientsForm = () => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
       };
 
+      const handleSaveInformation = async() => {
+
+        const data = JSON.stringify({
+            "dateOfBirth": dateOfBirth,
+            "address": address,
+            "allergies": allergies,
+            "medications": medications,
+            "preExistingConditions": preExistingConditions,
+            "pastSurgeries": pastSurgeries,
+            "familyMedicalHistory": familyMedicalHistory,
+            "notes": notes,
+           });
+
+        const config = {
+          method: "Post",
+          data:data,
+          url: 'http://localhost:3000/patient/addPatientInformation',
+          headers: {
+            'content-type': 'application/json',
+            'Accept': 'application/json',
+          },
+        };
+        try {
+          const res = await axios(config);
+          if (res.data.status == "success") {
+            console.log("success");
+          }
+        } catch (error) {
+          return error.response;
+        }
+    
+      }
+
   return (
     <>
          <div className='form-container' >
@@ -57,7 +90,7 @@ const PatientsForm = () => {
           <input type="text" name="notes" value={formData.notes} onChange={handleInputChange} required />
         </div>
       </form>
-      <button type="submit">Submit</button>
+      <button type="submit" onClick={handleSaveInformation}>Submit</button>
     </div>
     </>
   );
