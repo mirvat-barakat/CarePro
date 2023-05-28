@@ -22,6 +22,14 @@ const LoginBlock = ({ onSubmit }) => {
     setPassword(value);
   };
 
+  const handleSubmit = () => {
+    if (showRegistration) {
+      handleRegister();
+    } else {
+      handleLogin();
+    }
+  };
+
   const handleLogin = async() => {
     const data = JSON.stringify({
       "email": email,
@@ -47,8 +55,34 @@ const LoginBlock = ({ onSubmit }) => {
     } catch (error) {
       return error.response;
     }
-
   }
+
+  const handleRegister = async() => {
+    const data = JSON.stringify({
+        "name": name,
+        "email": email,
+        "password": password
+       });
+
+    const config = {
+      method: "Post",
+      data:data,
+      url: 'http://localhost:3000/auth/register',
+      headers: {
+        'content-type': 'application/json',
+        'Accept': 'application/json',
+      },
+    };
+    try {
+      const res = await axios(config);
+      if (res.data.status == "success" && res.data.user.role == "patient") {
+        console.log("success");
+      }
+    } catch (error) {
+      return error.response;
+    }
+  }
+
 
   const handleIconClick = () => {
     onSubmit();
@@ -95,7 +129,7 @@ const LoginBlock = ({ onSubmit }) => {
         <p>Don't Have an Account? <Link to="" onClick={handleSignUpClick}>Sign Up Here</Link></p>
       </form>
       )}
-      <button type="submit" onClick={handleLogin}>{showRegistration ? 'Register' : 'Login'}</button>
+      <button type="submit" onClick={handleSubmit}>{showRegistration ? 'Register' : 'Login'}</button>
     </div>
   );
 };
