@@ -4,7 +4,6 @@ import "./styles.css";
 const PatientsForm = () => {
 
     const [formData, setFormData] = useState({
-        user_id: '',
         dateOfBirth: '',
         address: '',
         allergies: '',
@@ -22,47 +21,43 @@ const PatientsForm = () => {
 
   return (
     <>
-         <div>
+         <div className='form-container' >
       <h2>ICE Patients Data Form</h2>
-      <form >
-        <div>
-          <label>User ID:</label>
-          <input type="text" name="user_id" value={formData.user_id} onChange={handleInputChange} required />
-        </div>
-        <div>
+      <form  >
+        <div className='form-container'>
           <label>Date of Birth:</label>
           <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} required />
         </div>
-        <div>
+        <div className='form-container'>
           <label>Address:</label>
           <input type="text" name="address" value={formData.address} onChange={handleInputChange} required />
         </div>
-        <div>
+        <div className='form-container'>
           <label>Allergies:</label>
-          <input type="text" name="address" value={formData.allergies} onChange={handleInputChange} required />
+          <input type="text" name="allergies" value={formData.allergies} onChange={handleInputChange} required />
         </div>
-        <div>
+        <div className='form-container'>
           <label>Medications:</label>
-          <input type="text" name="address" value={formData.medications} onChange={handleInputChange} required />
+          <input type="text" name="medications" value={formData.medications} onChange={handleInputChange} required />
         </div>
-        <div>
+        <div className='form-container'>
           <label>Pre Existing Conditions:</label>
-          <input type="text" name="address" value={formData.preExistingConditions} onChange={handleInputChange} required />
+          <input type="text" name="preExistingConditions" value={formData.preExistingConditions} onChange={handleInputChange} required />
         </div>
-        <div>
+        <div className='form-container'>
           <label>Past Surgeries:</label>
-          <input type="text" name="address" value={formData.pastSurgeries} onChange={handleInputChange} required />
+          <input type="text" name="pastSurgeries" value={formData.pastSurgeries} onChange={handleInputChange} required />
         </div>
-        <div>
+        <div className='form-container'>
           <label>Family Medical History:</label>
-          <input type="text" name="address" value={formData.familyMedicalHistory} onChange={handleInputChange} required />
+          <input type="text" name="familyMedicalHistory" value={formData.familyMedicalHistory} onChange={handleInputChange} required />
         </div>
-        <div>
+        <div className='form-container'>
           <label>Notes:</label>
-          <input type="text" name="address" value={formData.notes} onChange={handleInputChange} required />
+          <input type="text" name="notes" value={formData.notes} onChange={handleInputChange} required />
         </div>
-        <button type="submit">Submit</button>
       </form>
+      <button type="submit">Submit</button>
     </div>
     </>
   );
