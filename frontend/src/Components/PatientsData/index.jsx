@@ -1,5 +1,6 @@
 import React , {useState} from 'react';
 import "./styles.css";
+import axios from 'axios';
 
 const PatientsForm = () => {
 
@@ -22,14 +23,7 @@ const PatientsForm = () => {
       const handleSaveInformation = async() => {
 
         const data = JSON.stringify({
-            "dateOfBirth": dateOfBirth,
-            "address": address,
-            "allergies": allergies,
-            "medications": medications,
-            "preExistingConditions": preExistingConditions,
-            "pastSurgeries": pastSurgeries,
-            "familyMedicalHistory": familyMedicalHistory,
-            "notes": notes,
+            "formData": formData
            });
 
         const config = {
