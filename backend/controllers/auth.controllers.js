@@ -17,7 +17,11 @@ const jwt = require("jsonwebtoken");
     if (role) user.role = role;
     await user.save();
     const { password: hashedPassword, ...newUser } = user.toJSON()
-    res.status(201).json(newUser);
+    res.json({             
+      status: 'success',
+      message :'User Created successfully',
+      user: user,
+     })
   }
 
   exports.login = async (req, res) => {
