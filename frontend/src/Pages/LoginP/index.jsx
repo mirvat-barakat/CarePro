@@ -7,7 +7,10 @@ import "./styles.css";
 const LoginP = () => {
 
   return (
-    <PatientsForm />
+    <div className="ppage">
+      <PatientsForm />
+    </div>
+    
   );
 };
 

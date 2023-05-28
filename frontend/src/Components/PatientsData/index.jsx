@@ -22,7 +22,7 @@ const PatientsForm = () => {
   return (
     <>
          <div className='form-container' >
-      <h2>ICE Patients Data Form</h2>
+      <h2> Patients Data Form</h2>
       <form  >
         <div className='form-container'>
           <label>Date of Birth:</label>
