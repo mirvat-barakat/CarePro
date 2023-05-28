@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     enum: ["patient", "doctor"],
     default: "patient",
   }
-})
+});
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();

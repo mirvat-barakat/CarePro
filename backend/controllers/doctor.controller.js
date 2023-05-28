@@ -1,7 +1,7 @@
 const User = require("../Models/userModel");
 const bcrypt = require("bcrypt");
 
-const Patient = require('./models/Patient');
+const Patient = require('../Models/patientsModel');
 
 
 exports.getPatients = async (req, res) => {
