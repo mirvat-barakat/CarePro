@@ -31,6 +31,11 @@ const jwt = require("jsonwebtoken");
   
     const token = jwt.sign({ id: user._id, email: user.email }, process.env.SECRET_KEY);
   
-    res.json({ token })
+    res.json({             
+      status: 'success',
+      message :'User logged in successfully',
+      user: user,
+      token : token,
+     })
   
   }
