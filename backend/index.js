@@ -12,7 +12,7 @@ const { patientMiddleware } = require("./middlewares/patient.middleware");
 const { doctorMiddleware } = require("./middlewares/doctor.middleware");
 
 const authRouter = require("./routes/auth.routes");
-app.use('/auth', authMiddleware, authRouter)
+app.use('/auth', authRouter)
 
 const patientRouter = require("./routes/patient.routes");
 app.use('/patient', patientMiddleware, patientRouter)
