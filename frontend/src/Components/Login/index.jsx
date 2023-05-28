@@ -8,8 +8,10 @@ import axios from 'axios';
 
 const LoginBlock = ({ onSubmit }) => {
 
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showRegistration, setShowRegistration] = useState(false);
 
    const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -52,10 +54,35 @@ const LoginBlock = ({ onSubmit }) => {
     onSubmit();
   };
 
+  const handleSignUpClick = () => {
+    setShowRegistration(true); 
+  };
+
+  const handleBackToLoginClick = () => {
+    setShowRegistration(false);
+  };
+
   return (
     <div className="login-block">
       <FontAwesomeIcon icon={faTimes} className="faicon1" onClick={handleIconClick} />
-      <h2>LOGIN</h2>
+      <h2>{showRegistration ? 'REGISTER' : 'LOGIN'}</h2>
+      {showRegistration ? (
+        <form>
+          <div className="form-group">
+            <label htmlFor="registration-name">Name:</label>
+            <input type="name" id="registration-name" name="registration-name" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="registration-email">Email:</label>
+            <input type="email" id="registration-email" name="registration-email" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="registration-password">Password:</label>
+            <input type="password" id="registration-password" name="registration-password" />
+          </div>
+          <p>Already have an account? <Link to="" onClick={handleBackToLoginClick}>Back to Login</Link></p>
+        </form>
+      ) : (
       <form >
         <div className="form-group">
           <label htmlFor="email" >Email:</label>
@@ -65,9 +92,10 @@ const LoginBlock = ({ onSubmit }) => {
           <label htmlFor="password">Password:</label>
           <input type="password" id="password" name="password" value={password} onChange={handlePasswordChange}/>
         </div>
-        <p>Don't Have an Account? <Link to="">Sign Up Here</Link></p>
+        <p>Don't Have an Account? <Link to="" onClick={handleSignUpClick}>Sign Up Here</Link></p>
       </form>
-      <button type="submit" onClick={handleLogin}>Login</button>
+      )}
+      <button type="submit" onClick={handleLogin}>{showRegistration ? 'Register' : 'Login'}</button>
     </div>
   );
 };
