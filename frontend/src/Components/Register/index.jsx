@@ -35,9 +35,9 @@ const RegisterBlock = ({ onSubmit }) => {
            });
 
         const config = {
-          method: "GET",
+          method: "Post",
           data:data,
-          url: 'http://localhost:3000/auth/login',
+          url: 'http://localhost:3000/auth/register',
           headers: {
             'content-type': 'application/json',
             'Accept': 'application/json',
@@ -45,9 +45,8 @@ const RegisterBlock = ({ onSubmit }) => {
         };
         try {
           const res = await axios(config);
-          alert("axios");
           if (res.data.status == "success" && res.data.user.role == "patient") {
-            alert("success");
+            console.log("success");
           }
         } catch (error) {
           return error.response;
