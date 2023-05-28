@@ -13,6 +13,10 @@ const LoginBlock = ({ onSubmit }) => {
   const [password, setPassword] = useState('');
   const [showRegistration, setShowRegistration] = useState(false);
 
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
    const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -76,6 +80,7 @@ const LoginBlock = ({ onSubmit }) => {
     try {
       const res = await axios(config);
       if (res.data.status == "success" && res.data.user.role == "patient") {
+        setShowRegistration(false);
         console.log("success");
       }
     } catch (error) {
@@ -104,15 +109,15 @@ const LoginBlock = ({ onSubmit }) => {
         <form>
           <div className="form-group">
             <label htmlFor="registration-name">Name:</label>
-            <input type="name" id="registration-name" name="registration-name" />
+            <input type="name" id="registration-name" name="registration-name" value={name} onChange={handleNameChange}/>
           </div>
           <div className="form-group">
             <label htmlFor="registration-email">Email:</label>
-            <input type="email" id="registration-email" name="registration-email" />
+            <input type="email" id="registration-email" name="registration-email" value={email}  onChange={handleEmailChange} />
           </div>
           <div className="form-group">
             <label htmlFor="registration-password">Password:</label>
-            <input type="password" id="registration-password" name="registration-password" />
+            <input type="password" id="registration-password" name="registration-password" value={password} onChange={handlePasswordChange}/>
           </div>
           <p>Already have an account? <Link to="" onClick={handleBackToLoginClick}>Back to Login</Link></p>
         </form>
