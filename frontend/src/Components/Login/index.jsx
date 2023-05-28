@@ -10,10 +10,6 @@ const LoginBlock = ({ onSubmit }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const data = JSON.stringify({
-    "email": email,
-    "password": password
-   });
 
    const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -25,7 +21,10 @@ const LoginBlock = ({ onSubmit }) => {
   };
 
   const handleLogin = async() => {
-
+    const data = JSON.stringify({
+      "email": email,
+      "password": password
+     });
     const config = {
       method: "GET",
       data:data,
@@ -38,9 +37,9 @@ const LoginBlock = ({ onSubmit }) => {
     try {
       const res = await axios(config);
       alert("axios");
-      if (res.data.status == "success" && res.data.user.role == "patient") {
+      if (res.data.status == "success") {
         alert("success");
-         localStorage.setItem("token", res.data.authorisation.token);
+         localStorage.setItem("token", res.data.token);
 
       }
     } catch (error) {
