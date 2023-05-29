@@ -1,13 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 import axios from 'axios';
+import Confirmation from "../../Components/ConfirmationDialog";
+import { useNavigate } from "react-router-dom";
 
 const DoctorsPage = () => {
 
     const [patients, setPatients] = useState([]);
     const token = localStorage.getItem("token");
     const [recordNumber, setRecordNumber] = useState(1);
-    console.log(token);
+    const [showLogoutDialog, setShowLogoutDialog] = useState(false);
+    const navigate = useNavigate();
+
+    function handleLogoutClick(){
+        setShowLogoutDialog(true);
+    }
+
+    function handleLogoutCancel() {
+        setShowLogoutDialog(false);
+    }
+
+    const handleLogout = () => {
+      
+      localStorage.clear();
+      navigate("/login");
+  }
 
     const getUsers = {
         method: 'GET',
@@ -35,7 +52,7 @@ const DoctorsPage = () => {
     <>
     <div className="title1">
       <h1>Patients</h1>
-      <button>Logout</button>
+      <button onClick={handleLogoutClick}>Logout</button>
     </div>
     <div className="main1">
           <div className="text-container1">
@@ -63,6 +80,13 @@ const DoctorsPage = () => {
       </div>
       </div>
       <img src="doctors.jpg" className="dimg"></img>
+      {showLogoutDialog && (
+                <div className="add-form-backdrop">
+                            <Confirmation
+                            message="Are you sure you want to logout?"
+                            onCancel={handleLogoutCancel}
+                            onConfirm={handleLogout}
+                            /></div>)}
     </div>
 
   
