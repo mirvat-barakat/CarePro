@@ -10,6 +10,7 @@ const DoctorsPage = () => {
     const token = localStorage.getItem("token");
     const [recordNumber, setRecordNumber] = useState(1);
     const [showLogoutDialog, setShowLogoutDialog] = useState(false);
+    const [showForm, setShowForm] = useState(false);
     const [patient_id, setId] = useState(localStorage.getItem("patientId"));
     const id = patient_id.replace(/"/g, "");
 
@@ -43,7 +44,6 @@ const DoctorsPage = () => {
         axios.request(getUsers)
             .then(response => {
                 setPatients(response.data);
-                console.log(response.data);
             })
             .catch(function (error) {
               return error.response;
@@ -64,7 +64,8 @@ const DoctorsPage = () => {
       try {
         const res = await axios(config);
         if (res.data.status == "success") {
-          console.log("success");
+          console.log(res);
+          setShowForm(true);
           
         }
       } catch (error) {
