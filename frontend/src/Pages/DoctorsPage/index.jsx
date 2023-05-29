@@ -31,8 +31,33 @@ const DoctorsPage = () => {
   
 
   return (
-    <div>
+    <>
+    <div className="body">
+    <div className="title1">
+      <h1>Patients</h1>
     </div>
+      <div className="users-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+          {patients.map(patient => (
+              <tr key={patient.id}>
+                  <td>{patient.id}</td>
+                  <td>{patient.name}</td>
+                  <td>{patient.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </>
     
   );
 };
