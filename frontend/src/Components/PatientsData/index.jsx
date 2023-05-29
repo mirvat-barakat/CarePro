@@ -4,32 +4,34 @@ import axios from 'axios';
 
 const PatientsForm = () => {
 
-    const user_id = localStorage.getItem(user_id);
+    const [token, setToken] = useState(localStorage.getItem("token"));
+    const [user_id, setId] = useState(localStorage.getItem("user_id"));
 
-    const [formData, setFormData] = useState({
-        dateOfBirth: '',
-        address: '',
-        medicalcondition: '',
-        symptoms: '',
-        allergies: '',
-        medications: '',
-        preExistingConditions: '',
-        pastSurgeries: '',
-        familyMedicalHistory: '',
-        notes: '',
-      });
-    
-      const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
-      };
+    const [dateOfBirth, setDateOfBirth] = useState("");
+    const [address, setAddress] = useState("");
+    const [medicalcondition, setMedicalCondition] = useState("");
+    const [symptoms, setSymptoms] = useState("");
+    const [allergies, setAllergies] = useState("");
+    const [preExistingConditions, setPreExistingConditions] = useState("");
+    const [medications, setMedications] = useState("");
+    const [pastSurgeries, setPastSurgeries] = useState("");
+    const [familyMedicalHistory, setFamilyMedicalHistory] = useState("");
+    const [notes, setNotes] = useState("");
 
       const handleSaveInformation = async() => {
 
-        const data = JSON.stringify({
-            "formData": formData
-           });
-
+        const data = {
+          "dateOfBirth": dateOfBirth,
+          "address": address,
+          "medicalcondition": medicalcondition,
+          "symptoms": symptoms,
+          "allergies": allergies,
+          "medications": medications,
+          "preExistingConditions": preExistingConditions,
+          "pastSurgeries": pastSurgeries,
+          "familyMedicalHistory": familyMedicalHistory,
+          "notes": notes,
+        }
         const config = {
           method: "Post",
           data:data,
@@ -37,6 +39,8 @@ const PatientsForm = () => {
           headers: {
             'content-type': 'application/json',
             'Accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+
           },
         };
         try {
@@ -57,43 +61,63 @@ const PatientsForm = () => {
       <form  >
         <div className='form-container'>
           <label>Date of Birth:</label>
-          <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} required />
+          <input type="date" name="dateOfBirth" value={dateOfBirth} onChange={(e) => {
+                            setDateOfBirth(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Address:</label>
-          <input type="text" name="address" value={formData.address} onChange={handleInputChange} required />
+          <input type="text" name="address" value={address} onChange={(e) => {
+                            setAddress(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Medical Condition:</label>
-          <input type="text" name="medicalcondition" value={formData.medicalcondition} onChange={handleInputChange} required />
+          <input type="text" name="medicalcondition" value={medicalcondition} onChange={(e) => {
+                            setMedicalCondition(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Symptoms:</label>
-          <input type="text" name="symptoms" value={formData.symptoms} onChange={handleInputChange} required />
+          <input type="text" name="symptoms" value={symptoms} onChange={(e) => {
+                            setSymptoms(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Allergies:</label>
-          <input type="text" name="allergies" value={formData.allergies} onChange={handleInputChange} required />
+          <input type="text" name="allergies" value={allergies} onChange={(e) => {
+                            setAllergies(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Medications:</label>
-          <input type="text" name="medications" value={formData.medications} onChange={handleInputChange} required />
+          <input type="text" name="medications" value={medications} onChange={(e) => {
+                            setMedications(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Pre Existing Conditions:</label>
-          <input type="text" name="preExistingConditions" value={formData.preExistingConditions} onChange={handleInputChange} required />
+          <input type="text" name="preExistingConditions" value={preExistingConditions} onChange={(e) => {
+                            setPreExistingConditions(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Past Surgeries:</label>
-          <input type="text" name="pastSurgeries" value={formData.pastSurgeries} onChange={handleInputChange} required />
+          <input type="text" name="pastSurgeries" value={pastSurgeries} onChange={(e) => {
+                            setPastSurgeries(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Family Medical History:</label>
-          <input type="text" name="familyMedicalHistory" value={formData.familyMedicalHistory} onChange={handleInputChange} required />
+          <input type="text" name="familyMedicalHistory" value={familyMedicalHistory} onChange={(e) => {
+                            setFamilyMedicalHistory(e.target.value);
+                          }} required />
         </div>
         <div className='form-container'>
           <label>Notes:</label>
-          <input type="text" name="notes" value={formData.notes} onChange={handleInputChange} required />
+          <input type="text" name="notes" value={notes} onChange={(e) => {
+                            setNotes(e.target.value);
+                          }} required />
         </div>
       </form>
       <button type="submit" onClick={handleSaveInformation}>Submit</button>
