@@ -33,10 +33,12 @@ const DoctorsPage = () => {
 
   return (
     <>
-    <div className="body">
     <div className="title1">
       <h1>Patients</h1>
+      <button>Logout</button>
     </div>
+    <div className="main1">
+          <div className="text-container1">
       <div className="users-table">
         <table>
           <thead>
@@ -60,6 +62,10 @@ const DoctorsPage = () => {
         </table>
       </div>
       </div>
+      <img src="doctors.jpg" className="dimg"></img>
+    </div>
+
+  
     </>
     
   );
