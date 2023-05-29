@@ -4,8 +4,9 @@ import axios from 'axios';
 
 const DoctorsPage = () => {
 
-  const [users, setUsers] = useState([]);
+    const [patients, setPatients] = useState([]);
     const token = localStorage.getItem("token");
+    console.log(token);
 
     const getUsers = {
         method: 'GET',
@@ -20,10 +21,11 @@ const DoctorsPage = () => {
       useEffect(() => {
         axios.request(getUsers)
             .then(response => {
-                setUsers(response.data.users);
+                setPatients(response.data);
+                console.log(response.data);
             })
             .catch(function (error) {
-            alert("error");
+              return error.response;
             });
       },[]);
   
