@@ -35,10 +35,11 @@ const LoginBlock = ({ onSubmit }) => {
   };
 
   const handleLogin = async() => {
-    const data = JSON.stringify({
+
+    const data = {
       "email": email,
       "password": password
-     });
+     };
     const config = {
       method: "GET",
       data:data,
@@ -48,6 +49,7 @@ const LoginBlock = ({ onSubmit }) => {
         'Accept': 'application/json',
       },
     };
+    console.log(data);
     try {
       const res = await axios(config);
       alert("axios");
@@ -57,7 +59,7 @@ const LoginBlock = ({ onSubmit }) => {
 
       }
     } catch (error) {
-      return error.response;
+      console.error(error);
     }
   }
 
