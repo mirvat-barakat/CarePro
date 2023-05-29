@@ -4,9 +4,13 @@ import axios from 'axios';
 
 const PatientsForm = () => {
 
+    const user_id = localStorage.getItem(user_id);
+
     const [formData, setFormData] = useState({
         dateOfBirth: '',
         address: '',
+        medicalcondition: '',
+        symptoms: '',
         allergies: '',
         medications: '',
         preExistingConditions: '',
@@ -29,7 +33,7 @@ const PatientsForm = () => {
         const config = {
           method: "Post",
           data:data,
-          url: 'http://localhost:3000/patient/addPatientInformation',
+          url: `http://localhost:3000/patient/${user_id}/addPatientInformation`,
           headers: {
             'content-type': 'application/json',
             'Accept': 'application/json',
@@ -58,6 +62,14 @@ const PatientsForm = () => {
         <div className='form-container'>
           <label>Address:</label>
           <input type="text" name="address" value={formData.address} onChange={handleInputChange} required />
+        </div>
+        <div className='form-container'>
+          <label>Medical Condition:</label>
+          <input type="text" name="medicalcondition" value={formData.medicalcondition} onChange={handleInputChange} required />
+        </div>
+        <div className='form-container'>
+          <label>Symptoms:</label>
+          <input type="text" name="symptoms" value={formData.symptoms} onChange={handleInputChange} required />
         </div>
         <div className='form-container'>
           <label>Allergies:</label>
