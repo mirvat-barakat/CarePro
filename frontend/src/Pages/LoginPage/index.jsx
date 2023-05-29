@@ -1,7 +1,6 @@
 import React, { useState} from "react";
 import Login from "../../Components/Login";
 import LoginD from "../../Components/LoginA";
-import Register from "../../Components/Register";
 import "./styles.css";
 
 const LoginPage = () => {
