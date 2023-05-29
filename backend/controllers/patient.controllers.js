@@ -1,4 +1,5 @@
 const Patient = require('../Models/patientsModel');
+const User = require('../Models/userModel');
 
 
 exports.addPatientInformation = async (req, res) => {
@@ -6,6 +7,8 @@ exports.addPatientInformation = async (req, res) => {
     const {
       dateOfBirth,
       address,
+      medicalcondition,
+      symptoms,
       allergies,
       medications,
       preExistingConditions,
@@ -13,16 +16,19 @@ exports.addPatientInformation = async (req, res) => {
       familyMedicalHistory,
       notes,
     } = req.body;
+
+      const user = await User.findById( user_id );
   
-    try {
-      const patient = await User.findOne({ user_id });
-  
-      if (!patient) {
+      if (!user) {
         return res.status(404).json({ error: 'Patient not found' });
       }
+
+      const patient = new Patient();
       patient.user_id = user_id;
       patient.dateOfBirth = dateOfBirth;
       patient.address = address;
+      patient.medicalcondition = medicalcondition;
+      patient.symptoms = symptoms;
       patient.allergies = allergies;
       patient.medications = medications;
       patient.preExistingConditions = preExistingConditions;
@@ -31,14 +37,10 @@ exports.addPatientInformation = async (req, res) => {
       patient.notes = notes;
   
       await patient.save();
-  
+      
       res.json({
         status: "success",
         message: 'Patient information added successfully',
         patient: patient
       });
-    } catch (error) {
-      console.error();
-      res.status(500).json({ error: 'Failed to add patient information' });
-    }
   };

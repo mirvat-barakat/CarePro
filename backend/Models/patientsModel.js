@@ -14,6 +14,14 @@ const patientDataSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  medicalcondition: {
+    type: String,
+    required: true,
+  },
+  symptoms: {
+    type: [String],
+    default: [],
+  },
   allergies: {
     type: [String],
     default: [],
