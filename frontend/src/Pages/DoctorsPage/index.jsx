@@ -12,7 +12,6 @@ const DoctorsPage = () => {
     const [showLogoutDialog, setShowLogoutDialog] = useState(false);
     const [patient_id, setId] = useState(localStorage.getItem("patientId"));
     const id = patient_id.replace(/"/g, "");
-    console.log(id);
 
     const navigate = useNavigate();
     
@@ -44,6 +43,7 @@ const DoctorsPage = () => {
         axios.request(getUsers)
             .then(response => {
                 setPatients(response.data);
+                console.log(response.data);
             })
             .catch(function (error) {
               return error.response;
@@ -54,7 +54,7 @@ const DoctorsPage = () => {
 
       const config = {
         method: "GET",
-        url: 'http://localhost:3000/doctor/'+id+'/getPatientProfile',
+        url: `http://localhost:3000/doctor/${id}/getPatientProfile`,
         headers: {
           'content-type': 'application/json',
           'Accept': 'application/json',
@@ -65,7 +65,6 @@ const DoctorsPage = () => {
         const res = await axios(config);
         if (res.data.status == "success") {
           console.log("success");
-          console.log(res.data.patient);
           
         }
       } catch (error) {
