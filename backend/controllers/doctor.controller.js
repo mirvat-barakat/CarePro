@@ -10,7 +10,7 @@ exports.getPatients = async (req, res) => {
 };
 
 exports.getPatientProfile = async (req, res) => {
-    const { user_id } = req.params;
+    const { id: user_id  } = req.params;
   
     try {
       const patient = await Patient.findById( user_id );
