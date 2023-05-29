@@ -2,7 +2,7 @@ const Patient = require('../Models/patientsModel');
 
 
 exports.addPatientInformation = async (req, res) => {
-    const { user_id } = req.params;
+    const { id: user_id } = req.params;
     const {
       dateOfBirth,
       address,
@@ -15,12 +15,12 @@ exports.addPatientInformation = async (req, res) => {
     } = req.body;
   
     try {
-      const patient = await Patient.findOne({ user_id });
+      const patient = await User.findOne({ user_id });
   
       if (!patient) {
         return res.status(404).json({ error: 'Patient not found' });
       }
-  
+      patient.user_id = user_id;
       patient.dateOfBirth = dateOfBirth;
       patient.address = address;
       patient.allergies = allergies;
@@ -38,6 +38,7 @@ exports.addPatientInformation = async (req, res) => {
         patient: patient
       });
     } catch (error) {
+      console.error();
       res.status(500).json({ error: 'Failed to add patient information' });
     }
   };

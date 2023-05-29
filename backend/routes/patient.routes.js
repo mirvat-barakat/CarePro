@@ -3,7 +3,7 @@ const router = Router();
 
 const { addPatientInformation } = require("../controllers/patient.controllers")
 
-router.post("/addPatientInformation", addPatientInformation);
+router.post("/:id/addPatientInformation", addPatientInformation);
 
 
 module.exports = router;
