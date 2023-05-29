@@ -18,7 +18,7 @@ const patientRouter = require("./routes/patient.routes");
 app.use('/patient', patientRouter)
 
 const doctorRouter = require("./routes/doctor.routes");
-app.use('/doctor', doctorMiddleware, doctorRouter)
+app.use('/doctor',  doctorRouter)
 
 
 app.listen(process.env.PORT, (err) => {
