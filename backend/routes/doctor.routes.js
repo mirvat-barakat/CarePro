@@ -4,8 +4,8 @@ const router = Router();
 const { getPatients, getPatientProfile, addDoctorNote } = require("../controllers/doctor.controller")
 
 router.get("/getPatients", getPatients);
-router.get("/getPatientProfile", getPatientProfile);
-router.post("/addDoctorNote", addDoctorNote);
+router.get("/:id/getPatientProfile", getPatientProfile);
+router.post("/:id/addDoctorNote", addDoctorNote);
 
 
 module.exports = router;
