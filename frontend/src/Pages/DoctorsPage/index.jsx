@@ -10,8 +10,12 @@ const DoctorsPage = () => {
     const token = localStorage.getItem("token");
     const [recordNumber, setRecordNumber] = useState(1);
     const [showLogoutDialog, setShowLogoutDialog] = useState(false);
-    const navigate = useNavigate();
+    const [patient_id, setId] = useState(localStorage.getItem("patientId"));
+    const id = patient_id.replace(/"/g, "");
+    console.log(id);
 
+    const navigate = useNavigate();
+    
     function handleLogoutClick(){
         setShowLogoutDialog(true);
     }
@@ -40,7 +44,6 @@ const DoctorsPage = () => {
         axios.request(getUsers)
             .then(response => {
                 setPatients(response.data);
-                console.log(response.data);
             })
             .catch(function (error) {
               return error.response;
@@ -48,13 +51,13 @@ const DoctorsPage = () => {
       },[]);
   
     const getPatientProfile = async() => {
+
       const config = {
         method: "GET",
-        url: `http://localhost:3000/doctor/${user_id}//getPatientProfile`,
+        url: 'http://localhost:3000/doctor/'+id+'/getPatientProfile',
         headers: {
           'content-type': 'application/json',
           'Accept': 'application/json',
-          Authorization: `Bearer ${token}`,
 
         },
       };
@@ -62,6 +65,7 @@ const DoctorsPage = () => {
         const res = await axios(config);
         if (res.data.status == "success") {
           console.log("success");
+          console.log(res.data.patient);
           
         }
       } catch (error) {
@@ -89,7 +93,10 @@ const DoctorsPage = () => {
           </thead>
           <tbody>
           {patients.map((patient, index )=> (
-              <tr key={patient.id}>
+              <tr key={patient.id} onClick={() => {
+                localStorage.setItem('patientId', JSON.stringify(patient._id));
+                getPatientProfile();
+              }}>
                 <td>{recordNumber + index}</td>
                   <td>{patient._id}</td>
                   <td>{patient.name}</td>
