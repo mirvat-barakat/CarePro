@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 import axios from 'axios';
 import Confirmation from "../../Components/ConfirmationDialog";
+import PatientProfileForm from "../../Components/PatientProfile";
 import { useNavigate } from "react-router-dom";
 
 const DoctorsPage = () => {
@@ -13,6 +14,7 @@ const DoctorsPage = () => {
     const [showForm, setShowForm] = useState(false);
     const [patient_id, setId] = useState(localStorage.getItem("patientId"));
     const id = patient_id.replace(/"/g, "");
+    const [patientProfile, setPatientProfile] = useState(null);
 
     const navigate = useNavigate();
     
@@ -64,7 +66,8 @@ const DoctorsPage = () => {
       try {
         const res = await axios(config);
         if (res.data.status == "success") {
-          console.log(res);
+          setPatientProfile(res.data.patient);
+          console.log(patientProfile);
           setShowForm(true);
           
         }
@@ -108,6 +111,9 @@ const DoctorsPage = () => {
       </div>
       </div>
       <img src="doctors.jpg" className="dimg"></img>
+      {showForm && patientProfile && (
+        <PatientProfileForm profile={patientProfile} />
+      )}
       {showLogoutDialog && (
                 <div className="add-form-backdrop">
                             <Confirmation
