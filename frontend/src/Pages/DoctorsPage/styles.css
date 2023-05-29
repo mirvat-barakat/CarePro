@@ -33,7 +33,7 @@ h1{
     text-align: center;
   }
   table {
-    width: 0%;
+      width: 90%;
       border-collapse: collapse;
       border-spacing: 0;
       font-family: 'Roboto', sans-serif;
@@ -42,6 +42,7 @@ h1{
       font-size: 14px;
       margin-bottom: 5%;
       margin-left: 5%;
+      margin-top: 5%;
     }
   
   th,td {
