@@ -47,7 +47,28 @@ const DoctorsPage = () => {
             });
       },[]);
   
+    const getPatientProfile = async() => {
+      const config = {
+        method: "GET",
+        url: `http://localhost:3000/doctor/${user_id}//getPatientProfile`,
+        headers: {
+          'content-type': 'application/json',
+          'Accept': 'application/json',
+          Authorization: `Bearer ${token}`,
 
+        },
+      };
+      try {
+        const res = await axios(config);
+        if (res.data.status == "success") {
+          console.log("success");
+          
+        }
+      } catch (error) {
+        return error.response;
+      }
+  
+    }
   return (
     <>
     <div className="title1">
