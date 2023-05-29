@@ -2,12 +2,14 @@ import React , {useState} from 'react';
 import "./styles.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 const LoginABlock = ({ onSubmit }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
    const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -38,6 +40,7 @@ const LoginABlock = ({ onSubmit }) => {
       if (res.data.status == "success" && res.data.user.role == "doctor") {
         alert("success");
          localStorage.setItem("token", res.data.token);
+         navigate("/doctors");
 
       }
     } catch (error) {

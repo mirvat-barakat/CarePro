@@ -3,7 +3,7 @@ import "./styles.css";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 const LoginBlock = ({ onSubmit }) => {
@@ -12,6 +12,7 @@ const LoginBlock = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showRegistration, setShowRegistration] = useState(false);
+  const navigate = useNavigate();
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -56,6 +57,7 @@ const LoginBlock = ({ onSubmit }) => {
       if (res.data.status == "success") {
         alert("success");
          localStorage.setItem("token", res.data.token);
+         navigate("/patients");
 
       }
     } catch (error) {
@@ -84,6 +86,7 @@ const LoginBlock = ({ onSubmit }) => {
       if (res.data.status == "success" && res.data.user.role == "patient") {
         setShowRegistration(false);
         console.log("success");
+        navigate("/patients");
       }
     } catch (error) {
       return error.response;
