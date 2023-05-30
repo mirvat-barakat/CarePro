@@ -67,14 +67,7 @@ const PatientProfileForm = ({ profile }) => {
         <label>notes: </label>
         <div>{profile.notes}</div>
       </div>
-      <div >
-        <label>Doctor's Notes:</label>
-        <ul>
-          {profile.doctorNotes.map((note, index) => (
-            <li key={index}>{note}</li>
-          ))}
-        </ul>
-      </div>
+      <div className="doctor1">
       <div>
         <label>Comments:</label>
         <textarea value={comments} onChange={handleCommentsChange}></textarea>
@@ -85,8 +78,10 @@ const PatientProfileForm = ({ profile }) => {
       </div>
       <div>
         <label>Doctor's Notes:</label>
-        <textarea value={medications} onChange={handleNotesChange}></textarea>
+        <textarea value={notes} onChange={handleNotesChange}></textarea>
       </div>
+      </div>
+
       <button type="submit">Save</button>
     </form>
   );
