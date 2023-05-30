@@ -7,6 +7,8 @@ const PatientsForm = () => {
     const [token, setToken] = useState(localStorage.getItem("token"));
     const [user_id, setId] = useState(localStorage.getItem("user_id"));
 
+    const [formSubmitted, setFormSubmitted] = useState(false);
+
     const [dateOfBirth, setDateOfBirth] = useState("");
     const [address, setAddress] = useState("");
     const [medicalcondition, setMedicalCondition] = useState("");
@@ -47,6 +49,7 @@ const PatientsForm = () => {
           const res = await axios(config);
           if (res.data.status == "success") {
             console.log("success");
+            setFormSubmitted(true);
           }
         } catch (error) {
           return error.response;
@@ -56,7 +59,8 @@ const PatientsForm = () => {
 
   return (
     <>
-         <div className='form-container' >
+    {!formSubmitted && ( 
+      <div className='form-container' >
       <h2> Patients Data Form</h2>
       <form  >
         <div className='form-container'>
@@ -122,6 +126,8 @@ const PatientsForm = () => {
       </form>
       <button type="submit" onClick={handleSaveInformation}>Submit</button>
     </div>
+    )}
+    {formSubmitted && <p>Form submitted successfully!</p>}
     </>
   );
 };
