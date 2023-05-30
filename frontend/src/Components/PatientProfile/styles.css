@@ -8,10 +8,12 @@
     flex-direction: column;
     background-color: #F2F4F4;
     width: 50%;
-    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: 5%;
+    /* margin-top: 5%; */
     padding-top: 10px;
+    padding-bottom: 10px;
+    border: solid 4px;
+    border-color: #d26aca;
   }
   .value{
     display:flex;
