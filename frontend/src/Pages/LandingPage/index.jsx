@@ -12,7 +12,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div className="main">
+    <div className="main1">
       <div className="text-container">
         <img src={"button.png"} alt="Background" className="icon"/> 
         <p className="h1">Your Health is our priority</p>

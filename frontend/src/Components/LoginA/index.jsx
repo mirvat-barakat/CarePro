@@ -54,7 +54,7 @@ const LoginABlock = ({ onSubmit }) => {
   };
 
   return (
-    <div className="login-block">
+    <div className="login-block1">
       <FontAwesomeIcon icon={faTimes} className="faicon1" onClick={handleIconClick} />
       <h2>LOGIN</h2>
       <form >
