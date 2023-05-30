@@ -7,24 +7,24 @@
 
 ### Patient Screens (Web)
 
-| Get Started screen                                          | Landing Screen                               |
-| ----------------------------------------------------- | --------------------------------------------------- |
-| ![Landing](./readme/Implementation/Getstarted.jpg) | ![fsdaf](./readme/Implementation/LandingPage.jpg) |
-| Patient Login Screen                               | Patient Register screen                               |
-| ![Landing](./readme/Implementation/Patientslogin.jpg) | ![fsdaf](./readme/Implementation/Patientsregister.jpg) |
-| Patients Add Data Screen                           | Community Moderation Screen                         |
-| ![Landing](./readme/Implementation/Patientsdataform.jpg) | ![fsdaf](./readme/Implementation/Admin6.jpg) |
+| Get Started screen                                       | Landing Screen                                         |
+| -------------------------------------------------------- | ------------------------------------------------------ |
+| ![Landing](./readme/Implementation/Getstarted.jpg)       | ![fsdaf](./readme/Implementation/LandingPage.jpg)      |
+| Patient Login Screen                                     | Patient Register screen                                |
+| ![Landing](./readme/Implementation/Patientslogin.jpg)    | ![fsdaf](./readme/Implementation/Patientsregister.jpg) |
+| Patients Add Data Screen                                 | Community Moderation Screen                            |
+| ![Landing](./readme/Implementation/Patientsdataform.jpg) | ![fsdaf](./readme/Implementation/Formsuccess.jpg)      |
 
 | Logout Screen  
 | ![Landing](./readme/assets/Implementation/Admin7.jpg)
 
 ### Doctor Screens (Web)
 
-| Doctor Login screen                                          | View Patients Screen                               |
-| ----------------------------------------------------- | --------------------------------------------------- |
-| ![Landing](./readme/Implementation/Doctorslogin.jpg) | ![fsdaf](./readme/Implementation/Doctor'sviewpatients.jpg) |
-| View Patient Profile                              | Doctor Logout Screen                               |
-| ![Landing](./readme/Implementation/viewpatientprofile.jpg) | ![fsdaf](./readme/Implementation/Logoutdoctors.jpg) |
+| Doctor Login screen                                        | View Patients Screen                                       |
+| ---------------------------------------------------------- | ---------------------------------------------------------- |
+| ![Landing](./readme/Implementation/Doctorslogin.jpg)       | ![fsdaf](./readme/Implementation/Doctor'sviewpatients.jpg) |
+| View Patient Profile                                       | Doctor Logout Screen                                       |
+| ![Landing](./readme/Implementation/viewpatientprofile.jpg) | ![fsdaf](./readme/Implementation/Logoutdoctors.jpg)        |
 
 <br><br>
 
@@ -35,15 +35,17 @@
 
 ### Installation
 
- Clone the repo
-   ```sh
-   git clone https://https://github.com/mirvat-barakat/CarePro
-   ```
+Clone the repo
+
+```sh
+git clone https://https://github.com/mirvat-barakat/CarePro
+```
 
 ### CarePro Backend
 
 In `backend`:
 In The Terminal Run:
+
 ```sh
   npm install
 ```
@@ -61,6 +63,7 @@ In The Terminal Run:
 ```sh
   npm install
 ```
+
 ```sh
   npm start
 ```
