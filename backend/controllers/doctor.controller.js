@@ -59,3 +59,34 @@ exports.addDoctorNote = async (req, res) => {
     res.status(500).json({ error: 'Failed to add doctor note' });
   }
 };
+
+const nodemailer = require('nodemailer');
+
+exports.sendEmail = async (req, res) => {
+  const { recipientEmail } = req.params;
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.example.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: 'mirvatbarakat1@gmail.com',
+    pass: '',
+  },
+});
+
+const mailOptions = {
+  from: 'mirvatbarakat1@gmail.com',
+  to: recipientEmail,
+  subject: 'Notification: Profile Update',
+  text: 'Dear patient, your profile has been updated. Please log in to view the changes.',
+};
+
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    console.error('Error sending email:', error);
+  } else {
+    console.log('Email sent:', info.response);
+  }
+});
+};
