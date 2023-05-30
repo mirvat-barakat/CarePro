@@ -21,19 +21,21 @@ const LoginABlock = ({ onSubmit }) => {
   };
 
   const handleLogin = async() => {
+    
     const data = JSON.stringify({
       "email": email,
       "password": password
      });
     const config = {
-      method: "GET",
+      method: "POST",
       data:data,
-      url: 'http://localhost:3000/auth/login',
+      url: `http://localhost:3000/auth/login`,
       headers: {
-        'content-type': 'application/json',
-        'Accept': 'application/json',
+        'content-Type': 'application/json',
+        Accept: 'application/json',
       },
     };
+    console.log(data);
     try {
       const res = await axios(config);
       alert("axios");
