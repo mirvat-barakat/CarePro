@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import './styles.css';
 
 const PatientProfileForm = ({ profile }) => {
   const [comments, setComments] = useState("");
   const [medications, setMedications] = useState("");
-
+  const [notes, setNotes] = useState("");
+  console.log(profile);
   const handleCommentsChange = (event) => {
     setComments(event.target.value);
   };
@@ -12,28 +14,60 @@ const PatientProfileForm = ({ profile }) => {
     setMedications(event.target.value);
   };
 
+  const handleNotesChange = (event) => {
+    setNotes(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Perform any necessary actions with the comments and medications
-    // such as sending them to the server or updating the patient profile.
-
-    // Reset the form fields
     setComments("");
     setMedications("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Address:</label>
+    <form onSubmit={handleSubmit} className="form">
+      <div className="value">
+        <label>Address: </label>
         <div>{profile.address}</div>
       </div>
-      <div>
-        <label>Date of Birth:</label>
+      <div className="value">
+        <label>Date of Birth: </label>
         <div>{profile.dateOfBirth}</div>
       </div>
-      <div>
+      <div className="value">
+        <label>Medical Condition: </label>
+        <div>{profile.medicalcondition}</div>
+      </div>
+      <div className="value">
+        <label>Symptoms: </label>
+        <div>{profile.symptoms}</div>
+      </div>
+      <div className="value">
+        <label>allergies: </label>
+        <div>{profile.allergies}</div>
+      </div>
+      <div className="value">
+        <label>medications: </label>
+        <div>{profile.medications}</div>
+      </div >
+      <div className="value">
+        <label>preExistingConditions: </label>
+        <div>{profile.preExistingConditions}</div>
+      </div>
+      <div className="value">
+        <label>pastSurgeries:</label>
+        <div>{profile.pastSurgeries}</div>
+      </div>
+      <div className="value">
+        <label>familyMedicalHistory:</label>
+        <div>{profile.familyMedicalHistory}</div>
+      </div>
+      <div className="value">
+        <label>notes: </label>
+        <div>{profile.notes}</div>
+      </div>
+      <div >
         <label>Doctor's Notes:</label>
         <ul>
           {profile.doctorNotes.map((note, index) => (
@@ -42,24 +76,16 @@ const PatientProfileForm = ({ profile }) => {
         </ul>
       </div>
       <div>
-        <label>Family Medical History:</label>
-        <div>{profile.familyMedicalHistory}</div>
-      </div>
-      <div>
-        <label>Medical Condition:</label>
-        <div>{profile.medicalcondition}</div>
-      </div>
-      <div>
-        <label>Notes:</label>
-        <div>{profile.notes}</div>
-      </div>
-      <div>
         <label>Comments:</label>
         <textarea value={comments} onChange={handleCommentsChange}></textarea>
       </div>
       <div>
         <label>Medications:</label>
         <textarea value={medications} onChange={handleMedicationsChange}></textarea>
+      </div>
+      <div>
+        <label>Doctor's Notes:</label>
+        <textarea value={medications} onChange={handleNotesChange}></textarea>
       </div>
       <button type="submit">Save</button>
     </form>
