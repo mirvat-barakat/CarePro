@@ -12,11 +12,8 @@
 | ![Landing](./readme/Implementation/Getstarted.jpg)       | ![fsdaf](./readme/Implementation/LandingPage.jpg)      |
 | Patient Login Screen                                     | Patient Register screen                                |
 | ![Landing](./readme/Implementation/Patientslogin.jpg)    | ![fsdaf](./readme/Implementation/Patientsregister.jpg) |
-| Patients Add Data Screen                                 | Community Moderation Screen                            |
+| Patients Add Data Screen                                 | Success Message Screen                           |
 | ![Landing](./readme/Implementation/Patientsdataform.jpg) | ![fsdaf](./readme/Implementation/Formsuccess.jpg)      |
-
-| Logout Screen  
-| ![Landing](./readme/assets/Implementation/Admin7.jpg)
 
 ### Doctor Screens (Web)
 
