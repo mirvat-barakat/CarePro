@@ -9,6 +9,7 @@ const PatientProfileForm = ({ profile }) => {
   const [notes, setNotes] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user_id, setId] = useState(localStorage.getItem("user_id"));
+  const id = user_id.replace(/"/g, "");
 
   const handleCommentsChange = (event) => {
     setComments(event.target.value);
@@ -37,9 +38,9 @@ const PatientProfileForm = ({ profile }) => {
       "comments":comments
     }
     const config = {
-      method: "Post",
+      method: "POST",
       data:data,
-      url: `http://localhost:3000/patient/${user_id}/addDoctorNote`,
+      url: `http://localhost:3000/doctor/${id}/addDoctorNote`,
       headers: {
         'content-type': 'application/json',
         'Accept': 'application/json',
