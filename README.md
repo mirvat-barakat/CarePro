@@ -9,11 +9,11 @@
 
 | Login screen                                          | Users Accounts Screen                               |
 | ----------------------------------------------------- | --------------------------------------------------- |
-| ![Landing](./readme/assets/Implementation/Admin1.jpg) | ![fsdaf](./readme/assets/Implementation/Admin2.jpg) |
+| ![Landing](./readme/Implementation/Getstarted.jpg) | ![fsdaf](./readme/Implementation/LandingPage.jpg) |
 | View Specialists Screen                               | Add Specialist screen                               |
-| ![Landing](./readme/assets/Implementation/Admin3.jpg) | ![fsdaf](./readme/assets/Implementation/Admin4.jpg) |
+| ![Landing](./readme/Implementation/Patientslogin.jpg) | ![fsdaf](./readme/Implementation/Patientsregister.jpg) |
 | Community Moderation Screen                           | Community Moderation Screen                         |
-| ![Landing](./readme/assets/Implementation/Admin5.jpg) | ![fsdaf](./readme/assets/Implementation/Admin6.jpg) |
+| ![Landing](./readme/Implementation/Patientsdataform.jpg) | ![fsdaf](./readme/Implementation/Admin6.jpg) |
 
 | Logout Screen  
 | ![Landing](./readme/assets/Implementation/Admin7.jpg)
@@ -22,9 +22,9 @@
 
 | Login screen                                          | Users Accounts Screen                               |
 | ----------------------------------------------------- | --------------------------------------------------- |
-| ![Landing](./readme/assets/Implementation/Admin1.jpg) | ![fsdaf](./readme/assets/Implementation/Admin2.jpg) |
+| ![Landing](./readme/Implementation/Doctorslogin.jpg) | ![fsdaf](./readme/Implementation/Doctor'sviewpatients.jpg) |
 | View Specialists Screen                               | Add Specialist screen                               |
-| ![Landing](./readme/assets/Implementation/Admin3.jpg) | ![fsdaf](./readme/assets/Implementation/Admin4.jpg) |
+| ![Landing](./readme/assets/Implementation/Admin3.jpg) | ![fsdaf](./readme/Implementation/Logoutdoctors.jpg) |
 | Community Moderation Screen                           | Community Moderation Screen                         |
 | ![Landing](./readme/assets/Implementation/Admin5.jpg) | ![fsdaf](./readme/assets/Implementation/Admin6.jpg) |
 
