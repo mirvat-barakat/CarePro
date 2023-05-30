@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import './styles.css';
+import axios from 'axios';
 
 const PatientProfileForm = ({ profile }) => {
+
   const [comments, setComments] = useState("");
   const [medications, setMedications] = useState("");
   const [notes, setNotes] = useState("");
-  console.log(profile);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [user_id, setId] = useState(localStorage.getItem("user_id"));
+
   const handleCommentsChange = (event) => {
     setComments(event.target.value);
   };
@@ -24,6 +28,35 @@ const PatientProfileForm = ({ profile }) => {
     setComments("");
     setMedications("");
   };
+
+  const handleSaveDoctorInformation = async() => {
+
+    const data = {
+      "medications":medications, 
+      "notes":notes, 
+      "comments":comments
+    }
+    const config = {
+      method: "Post",
+      data:data,
+      url: `http://localhost:3000/patient/${user_id}/addDoctorNote`,
+      headers: {
+        'content-type': 'application/json',
+        'Accept': 'application/json',
+        Authorization: `Bearer ${token}`,
+
+      },
+    };
+    try {
+      const res = await axios(config);
+      if (res.data.status == "success") {
+        console.log("success");
+      }
+    } catch (error) {
+      return error.response;
+    }
+
+  }
 
   return (
     <form onSubmit={handleSubmit} className="form">
@@ -82,7 +115,7 @@ const PatientProfileForm = ({ profile }) => {
       </div>
       </div>
 
-      <button type="submit">Save</button>
+      <button type="submit" onClick={handleSaveDoctorInformation}>Save</button>
     </form>
   );
 };
