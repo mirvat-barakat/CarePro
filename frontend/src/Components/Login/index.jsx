@@ -124,7 +124,7 @@ const LoginBlock = ({ onSubmit }) => {
             <label htmlFor="registration-password">Password:</label>
             <input type="password" id="registration-password" name="registration-password" value={password} onChange={handlePasswordChange}/>
           </div>
-          <p>Already have an account? <Link to="" onClick={handleBackToLoginClick}>Back to Login</Link></p>
+          <p className='link'>Already have an account? <Link to="" onClick={handleBackToLoginClick}>Back to Login</Link></p>
         </form>
       ) : (
       <form >
@@ -136,7 +136,7 @@ const LoginBlock = ({ onSubmit }) => {
           <label htmlFor="password">Password:</label>
           <input type="password" id="password" name="password" value={password} onChange={handlePasswordChange}/>
         </div>
-        <p>Don't Have an Account? <Link to="" onClick={handleSignUpClick}>Sign Up Here</Link></p>
+        <p className='link'>Don't Have an Account? <Link to="" onClick={handleSignUpClick}>Sign Up Here</Link></p>
       </form>
       )}
       <button type="submit" onClick={handleSubmit}>{showRegistration ? 'Register' : 'Login'}</button>
