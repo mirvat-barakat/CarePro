@@ -79,7 +79,8 @@ const DoctorsPage = () => {
     }
   return (
     <>
-    <div className="title1">
+    <div className={`page-container ${showForm ? 'blur-background' : ''}`}>
+        <div className="title1">
       <h1>Patients</h1>
       <button onClick={handleLogoutClick}>Logout</button>
     </div>
@@ -112,9 +113,7 @@ const DoctorsPage = () => {
       </div>
       </div>
       <img src="doctors.jpg" className="dimg"></img>
-      {showForm && patientProfile && (
-        <PatientProfileForm profile={patientProfile} />
-      )}
+      
       {showLogoutDialog && (
                 <div className="add-form-backdrop">
                             <Confirmation
@@ -123,6 +122,10 @@ const DoctorsPage = () => {
                             onConfirm={handleLogout}
                             /></div>)}
     </div>
+  </div>
+{showForm && patientProfile && (
+        <PatientProfileForm profile={patientProfile} />
+      )}
 
   
     </>

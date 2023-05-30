@@ -62,3 +62,6 @@ h1{
   tr:hover {
       background-color: #ecc0e6;
     }
+    .page-container.blur-background {
+      filter: blur(5px);
+    }
