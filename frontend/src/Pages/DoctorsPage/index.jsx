@@ -12,8 +12,6 @@ const DoctorsPage = () => {
     const [recordNumber, setRecordNumber] = useState(1);
     const [showLogoutDialog, setShowLogoutDialog] = useState(false);
     const [showForm, setShowForm] = useState(false);
-    const [patient_id, setId] = useState(localStorage.getItem("patientId"));
-    const id = patient_id.replace(/"/g, "");
     const [patientProfile, setPatientProfile] = useState(null);
 
     const navigate = useNavigate();
@@ -46,6 +44,7 @@ const DoctorsPage = () => {
         axios.request(getUsers)
             .then(response => {
                 setPatients(response.data);
+                console.log(response.data);
             })
             .catch(function (error) {
               return error.response;
@@ -53,6 +52,8 @@ const DoctorsPage = () => {
       },[]);
   
     const getPatientProfile = async() => {
+      const user_id= localStorage.getItem("user_id");
+      const id = user_id.replace(/"/g, "");
 
       const config = {
         method: "GET",
@@ -97,7 +98,7 @@ const DoctorsPage = () => {
           <tbody>
           {patients.map((patient, index )=> (
               <tr key={patient.id} onClick={() => {
-                localStorage.setItem('patientId', JSON.stringify(patient._id));
+                localStorage.setItem('user_id', JSON.stringify(patient._id));
                 getPatientProfile();
               }}>
                 <td>{recordNumber + index}</td>

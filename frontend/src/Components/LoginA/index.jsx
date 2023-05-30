@@ -38,10 +38,9 @@ const LoginABlock = ({ onSubmit }) => {
     console.log(data);
     try {
       const res = await axios(config);
-      alert("axios");
       if (res.data.status == "success" && res.data.user.role == "doctor") {
-        alert("success");
          localStorage.setItem("token", res.data.token);
+         localStorage.setItem("user_id", res.data.user._id);
          navigate("/doctors");
 
       }

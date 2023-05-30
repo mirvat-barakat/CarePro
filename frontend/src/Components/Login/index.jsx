@@ -55,9 +55,8 @@ const LoginBlock = ({ onSubmit }) => {
       const res = await axios(config);
       alert("axios");
       if (res.data.status == "success") {
-        alert("success");
          localStorage.setItem("token", res.data.token);
-         navigate("/patients");
+         localStorage.setItem("user_id", res.data.user._id);
 
       }
     } catch (error) {
