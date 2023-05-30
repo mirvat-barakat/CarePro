@@ -15,11 +15,11 @@ const authRouter = require("./routes/auth.routes");
 app.use('/auth', authRouter)
 
 const patientRouter = require("./routes/patient.routes");
-app.use('/patient',  patientRouter)
+app.use('/patient', patientMiddleware, patientRouter)
 
 const doctorRouter = require("./routes/doctor.routes");
 const { getPatientProfile } = require("./controllers/doctor.controller");
-app.use('/doctor',   doctorRouter)
+app.use('/doctor', doctorMiddleware,  doctorRouter)
 
 
 app.listen(process.env.PORT, (err) => {
