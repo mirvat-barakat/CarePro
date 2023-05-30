@@ -25,17 +25,14 @@ const PatientProfileForm = ({ profile }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    setComments("");
-    setMedications("");
   };
 
   const handleSaveDoctorInformation = async() => {
 
     const data = {
-      "medications":medications, 
-      "notes":notes, 
-      "comments":comments
+      "d_medications":medications, 
+      "d_note":notes, 
+      "d_comment":comments
     }
     const config = {
       method: "POST",

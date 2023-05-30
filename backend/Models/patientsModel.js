@@ -46,26 +46,19 @@ const patientDataSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  doctorNotes: [
-    {
-      date: {
-        type: Date,
-        default: Date.now,
-      },
-      medications: {
-        type: String,
-        default: "",
-      },
-      note: {
-        type: String,
-        default: "",
-      },
-      message: {
-        type: String,
-        default: "",
-      },
-    },
-  ],
+  d_medications: {
+    type: String,
+    default: "",
+  },
+  d_note: {
+    type: String,
+    default: "",
+  },
+  d_comment: {
+    type: String,
+    default: "",
+  },
+
 });
 
 const Patient = mongoose.model("Patient", patientDataSchema);

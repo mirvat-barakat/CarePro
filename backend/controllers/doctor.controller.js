@@ -40,14 +40,9 @@ exports.addDoctorNote = async (req, res) => {
       return res.status(404).json({ error: 'Patient not found' });
     }
 
-    const doctorNote = {
-      date: new Date(),
-      medications: medications || [],
-      note: note || '',
-      message: message || ''
-    };
-
-    patient.doctorNotes.push(doctorNote);
+    patient.d_medications = medications;
+    patient.d_note = note,
+    patient.d_comment = message,
     await patient.save();
 
     res.json({
