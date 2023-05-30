@@ -127,7 +127,9 @@ const PatientsForm = () => {
       <button type="submit" onClick={handleSaveInformation}>Submit</button>
     </div>
     )}
-    {formSubmitted && <p>Form submitted successfully!</p>}
+    {formSubmitted && <p className='success-message'>Form submitted successfully!<br /> Thank you for submitting the form! Your data has been saved. You will receive an email notification once the changes are processed.<br />
+    Until then, stay safe and take care of yourself!
+        </p>}
     </>
   );
 };
