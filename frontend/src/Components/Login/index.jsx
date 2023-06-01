@@ -84,7 +84,7 @@ const LoginBlock = ({ onSubmit }) => {
       const res = await axios(config);
       if (res.data.status == "success" && res.data.user.role == "patient") {
         setShowRegistration(false);
-        console.log("success");
+        localStorage.setItem('user_id', JSON.stringify(res.data.user._id));
         navigate("/patients");
       }
     } catch (error) {
