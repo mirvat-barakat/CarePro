@@ -85,7 +85,7 @@ const LoginBlock = ({ onSubmit }) => {
       if (res.data.status == "success" && res.data.user.role == "patient") {
         setShowRegistration(false);
         localStorage.setItem('user_id', JSON.stringify(res.data.user._id));
-        navigate("/patients");
+        navigate("/login");
       }
     } catch (error) {
       return error.response;
