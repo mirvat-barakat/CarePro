@@ -44,7 +44,6 @@ const DoctorsPage = () => {
         axios.request(getUsers)
             .then(response => {
                 setPatients(response.data);
-                console.log(response.data);
             })
             .catch(function (error) {
               return error.response;
@@ -61,6 +60,7 @@ const DoctorsPage = () => {
         headers: {
           'content-type': 'application/json',
           'Accept': 'application/json',
+          'Authorization': 'bearer ' + token
 
         },
       };
@@ -68,7 +68,6 @@ const DoctorsPage = () => {
         const res = await axios(config);
         if (res.data.status == "success") {
           setPatientProfile(res.data.patient);
-          console.log(patientProfile);
           setShowForm(true);
           
         }
