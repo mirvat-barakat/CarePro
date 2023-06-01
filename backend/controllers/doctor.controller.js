@@ -32,7 +32,7 @@ exports.getPatientProfile = async (req, res) => {
   
 
 exports.addDoctorNote = async (req, res) => {
-  const { user_id } = req.params;
+  const { user_id, recipientEmail } = req.params;
   const { medications, note, message } = req.body;
 
   try {
