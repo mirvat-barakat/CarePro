@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './styles.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +13,7 @@ const PatientProfileForm = ({ profile, onClose  }) => {
   const [user_id, setId] = useState(localStorage.getItem("user_id"));
   const id = user_id.replace(/"/g, "");
   const [idVisible, setIdVisible] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleCommentsChange = (event) => {
     setComments(event.target.value);
@@ -33,6 +34,14 @@ const PatientProfileForm = ({ profile, onClose  }) => {
   const handleIconClick = () => {
     setIdVisible(false);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 8000); 
+    }
+  }, [isSuccess]);
 
   const handleSaveDoctorInformation = async() => {
 
@@ -55,7 +64,8 @@ const PatientProfileForm = ({ profile, onClose  }) => {
     try {
       const res = await axios(config);
       if (res.data.status == "success") {
-        console.log("success");
+        setIdVisible(false);
+        setIsSuccess(true);
       }
     } catch (error) {
       return error.response;
@@ -65,9 +75,12 @@ const PatientProfileForm = ({ profile, onClose  }) => {
 
   return (
     <div >
+      {isSuccess && (
+          <div><p className="success-message1">Response Saved Successfully!</p></div>
+        )}
             {idVisible && (
           <div >
-          <form onSubmit={handleSubmit} className="form">
+          <form onSubmit={handleSubmit}  className="form ">
             <FontAwesomeIcon icon={faTimes} className="faicon1" onClick={handleIconClick}/>
             <div className="value">
               <label>Address: </label>
