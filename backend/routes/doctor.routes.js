@@ -5,7 +5,7 @@ const { getPatients, getPatientProfile, addDoctorNote, sendEmail } = require("..
 
 router.get("/getPatients", getPatients);
 router.get("/:id/getPatientProfile", getPatientProfile);
-router.post("/:id/addDoctorNote", addDoctorNote);
+router.post("/:id/:recipientEmail/addDoctorNote", addDoctorNote);
 router.post("/:email/sendEmail", sendEmail);
 
 
