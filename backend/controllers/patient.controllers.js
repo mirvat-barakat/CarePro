@@ -44,3 +44,22 @@ exports.addPatientInformation = async (req, res) => {
         patient: patient
       });
   };
+
+  exports.getDoctorReport = async (req, res) => {
+    const { id: user_id  } = req.params;
+  
+    try {
+      const patient = await Patient.findOne({ user_id }, 'd_medications d_note d_comment');
+  
+      if (!patient) {
+        return res.status(404).json({ error: 'Patient not found' });
+      }
+  
+      res.json({
+        status: "success",
+        patient: patient
+      });
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to retrieve patient profile' });
+    }
+  };
