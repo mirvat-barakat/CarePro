@@ -99,6 +99,7 @@ const DoctorsPage = () => {
           {patients.map((patient, index )=> (
               <tr key={patient.id} onClick={() => {
                 localStorage.setItem('user_id', JSON.stringify(patient._id));
+                localStorage.setItem('recipientEmail', JSON.stringify(patient.email));
                 getPatientProfile();
               }}>
                 <td>{recordNumber + index}</td>

@@ -11,7 +11,9 @@ const PatientProfileForm = ({ profile, onClose  }) => {
   const [notes, setNotes] = useState("");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user_id, setId] = useState(localStorage.getItem("user_id"));
+  const [email, setEmail] = useState(localStorage.getItem("recipientEmail"));
   const id = user_id.replace(/"/g, "");
+  const recipientEmail = email.replace(/"/g, "");
   const [idVisible, setIdVisible] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -53,7 +55,7 @@ const PatientProfileForm = ({ profile, onClose  }) => {
     const config = {
       method: "POST",
       data:data,
-      url: `http://localhost:3000/doctor/${id}/addDoctorNote`,
+      url: `http://localhost:3000/doctor/${id}/${recipientEmail}/addDoctorNote`,
       headers: {
         'content-type': 'application/json',
         'Accept': 'application/json',
