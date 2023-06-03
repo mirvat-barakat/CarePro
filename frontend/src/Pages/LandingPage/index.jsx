@@ -9,6 +9,7 @@ const LandingPage = () => {
     const selectedOption = event.target.value;
     localStorage.setItem("lang", selectedOption);
     i18n.changeLanguage(selectedOption);
+    window.location.reload();
   };
 
   const lang = localStorage.getItem("lang") || "en";
@@ -24,7 +25,7 @@ const LandingPage = () => {
     <div className="main1">
       
       <div className="text-container">
-        <select onChange={handleChange} value={lang} className="options">
+        <select onChange={handleChange} value={lang} className="select-language">
         <option value="en">English</option>
         <option value="ar">العربية</option>
       </select>
