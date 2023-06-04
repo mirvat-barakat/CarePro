@@ -2,6 +2,8 @@ import React, { useState} from "react";
 import Login from "../../Components/Login";
 import LoginD from "../../Components/LoginA";
 import "./styles.css";
+import i18n from "../../i18n";
+import LanguageSelect from "../../Components/SelectLanguaage";
 
 const LoginPage = () => {
 
@@ -31,10 +33,10 @@ const LoginPage = () => {
           </div>
           <div className="image-select-middle">
             <div className="option-box patient" onClick={handlePatientsClick}>
-              <h2>Patients</h2>
+              <h2>{i18n.t("patientOptionText")}</h2>
             </div>
             <div className="option-box doctor"  onClick={handleDoctorsClick}>
-              <h2>Doctors</h2>
+              <h2>{i18n.t("doctorOptionText")}</h2>
             </div>
           </div>
           <div className="image-select-right">

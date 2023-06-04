@@ -1,5 +1,17 @@
 {
     "your_health": "Your Health is our priority",
     "medicine_art": "Medicine is not only a science; it is also an art. It does not consist of compounding pills and plasters; it deals with the very processes of life, which must be understood before they may be guided. - Paracelsus",
-    "get_started": "Get Started"
+    "get_started": "Get Started",
+    "buttonText": "Login",
+    "patientOptionText": "Patients",
+    "doctorOptionText": "Doctors",
+    "loginText": "LOGIN",
+    "registerText": "REGISTER",
+    "nameLabelText": "Name",
+    "emailLabelText": "Email",
+    "passwordLabelText": "Password",
+    "haveAccountText": "Already have an account?",
+    "backToLoginText": "Back to Login",
+    "signUpText": "Sign Up Here",
+    "noAccountText": "Don't have an account?"
   }

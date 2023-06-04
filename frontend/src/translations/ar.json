@@ -1,5 +1,17 @@
 {
     "your_health": "صحتك هي أولويتنا",
     "medicine_art": "الطب ليس مجرد علم، بل هو فن. إنه لا يقتصر على تركيب الحبوب والتلويح بالعجائن. بل يتعامل مع عمليات الحياة ذاتها التي يجب فهمها قبل أن يمكن توجيهها.",
-    "get_started": "ابدأ"
+    "get_started": "ابدأ",
+    "buttonText": "تسجيل الدخول",
+    "patientOptionText": "المرضى",
+    "doctorOptionText": "الأطباء",
+    "loginText": "تسجيل الدخول",
+    "registerText": "تسجيل",
+    "nameLabelText": "الاسم",
+    "emailLabelText": "البريد الإلكتروني",
+    "passwordLabelText": "كلمة المرور",
+    "haveAccountText": "لديك حساب بالفعل؟",
+    "backToLoginText": "العودة إلى تسجيل الدخول",
+    "signUpText": "قم بالتسجيل هنا",
+    "noAccountText": "لا تمتلك حسابًا؟"
   }

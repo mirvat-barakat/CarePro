@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import i18n from "../../i18n";
 
 const LoginBlock = ({ onSubmit }) => {
 
@@ -108,37 +109,37 @@ const LoginBlock = ({ onSubmit }) => {
   return (
     <div className="login-block">
       <FontAwesomeIcon icon={faTimes} className="faicon1" onClick={handleIconClick} />
-      <h2>{showRegistration ? 'REGISTER' : 'LOGIN'}</h2>
+      <h2>{showRegistration ? i18n.t("registerText") : i18n.t("loginText") }</h2>
       {showRegistration ? (
         <form>
           <div className="form-group">
-            <label htmlFor="registration-name">Name:</label>
+            <label htmlFor="registration-name">{i18n.t("nameLabelText")}</label>
             <input type="name" id="registration-name" name="registration-name" value={name} onChange={handleNameChange}/>
           </div>
           <div className="form-group">
-            <label htmlFor="registration-email">Email:</label>
+            <label htmlFor="registration-email">{i18n.t("emailLabelText")}</label>
             <input type="email" id="registration-email" name="registration-email" value={email}  onChange={handleEmailChange} />
           </div>
           <div className="form-group">
-            <label htmlFor="registration-password">Password:</label>
+            <label htmlFor="registration-password">{i18n.t("passwordLabelText")}</label>
             <input type="password" id="registration-password" name="registration-password" value={password} onChange={handlePasswordChange}/>
           </div>
-          <p className='link'>Already have an account? <Link to="" onClick={handleBackToLoginClick}>Back to Login</Link></p>
+          <p className='link'>{i18n.t("haveAccountText")} <Link to="" onClick={handleBackToLoginClick}>{i18n.t("backToLoginText")}</Link></p>
         </form>
       ) : (
       <form >
         <div className="form-group">
-          <label htmlFor="email" >Email:</label>
+          <label htmlFor="email" >{i18n.t("emailLabelText")}</label>
           <input type="email" id="email" name="email" value={email}  onChange={handleEmailChange}/>
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">{i18n.t("passwordLabelText")}</label>
           <input type="password" id="password" name="password" value={password} onChange={handlePasswordChange}/>
         </div>
-        <p className='link'>Don't Have an Account? <Link to="" onClick={handleSignUpClick}>Sign Up Here</Link></p>
+        <p className='link'>{i18n.t("noAccountText")} <Link to="" onClick={handleSignUpClick}>{i18n.t("signUpText")}</Link></p>
       </form>
       )}
-      <button type="submit" onClick={handleSubmit}>{showRegistration ? 'Register' : 'Login'}</button>
+      <button type="submit" onClick={handleSubmit}>{showRegistration ? i18n.t("registerText") : i18n.t("loginText")}</button>
     </div>
   );
 };
