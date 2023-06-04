@@ -106,6 +106,10 @@ const LoginBlock = ({ onSubmit }) => {
     setShowRegistration(false);
   };
 
+
+  const language = localStorage.getItem("lang") || "en";
+  const isArabic = language === "ar";
+
   return (
     <div className="login-block">
       <FontAwesomeIcon icon={faTimes} className="faicon1" onClick={handleIconClick} />
@@ -113,15 +117,15 @@ const LoginBlock = ({ onSubmit }) => {
       {showRegistration ? (
         <form>
           <div className="form-group">
-            <label htmlFor="registration-name">{i18n.t("nameLabelText")}</label>
+            <label htmlFor="registration-name" className={isArabic ? "label-arabic" : ""}>{i18n.t("nameLabelText")}</label>
             <input type="name" id="registration-name" name="registration-name" value={name} onChange={handleNameChange}/>
           </div>
           <div className="form-group">
-            <label htmlFor="registration-email">{i18n.t("emailLabelText")}</label>
+            <label htmlFor="registration-email" className={isArabic ? "label-arabic" : ""}>{i18n.t("emailLabelText")}</label>
             <input type="email" id="registration-email" name="registration-email" value={email}  onChange={handleEmailChange} />
           </div>
           <div className="form-group">
-            <label htmlFor="registration-password">{i18n.t("passwordLabelText")}</label>
+            <label htmlFor="registration-password" className={isArabic ? "label-arabic" : ""}>{i18n.t("passwordLabelText")}</label>
             <input type="password" id="registration-password" name="registration-password" value={password} onChange={handlePasswordChange}/>
           </div>
           <p className='link'>{i18n.t("haveAccountText")} <Link to="" onClick={handleBackToLoginClick}>{i18n.t("backToLoginText")}</Link></p>
@@ -129,11 +133,11 @@ const LoginBlock = ({ onSubmit }) => {
       ) : (
       <form >
         <div className="form-group">
-          <label htmlFor="email" >{i18n.t("emailLabelText")}</label>
+          <label htmlFor="email" className={isArabic ? "label-arabic" : ""}>{i18n.t("emailLabelText")}</label>
           <input type="email" id="email" name="email" value={email}  onChange={handleEmailChange}/>
         </div>
         <div className="form-group">
-          <label htmlFor="password">{i18n.t("passwordLabelText")}</label>
+          <label htmlFor="password" className={isArabic ? "label-arabic" : ""}>{i18n.t("passwordLabelText")}</label>
           <input type="password" id="password" name="password" value={password} onChange={handlePasswordChange}/>
         </div>
         <p className='link'>{i18n.t("noAccountText")} <Link to="" onClick={handleSignUpClick}>{i18n.t("signUpText")}</Link></p>
