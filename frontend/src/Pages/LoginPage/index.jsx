@@ -3,7 +3,6 @@ import Login from "../../Components/Login";
 import LoginD from "../../Components/LoginA";
 import "./styles.css";
 import i18n from "../../i18n";
-import LanguageSelect from "../../Components/SelectLanguaage";
 
 const LoginPage = () => {
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const PatientProfileForm = ({ profile, onClose  }) => {
+const PatientProfileForm = ({ profile  }) => {
 
   const [comments, setComments] = useState("");
   const [medications, setMedications] = useState("");

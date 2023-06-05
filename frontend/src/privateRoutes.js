@@ -1,5 +1,5 @@
 import LandingPage from './Pages/LandingPage';
-import { Outlet, Navigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 const PrivateRoutes = () => {
     const token = localStorage.getItem('token');
