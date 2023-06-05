@@ -4,12 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import i18n from "../../i18n";
 
 const LoginABlock = ({ onSubmit }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const language = localStorage.getItem("lang") || "en";
+  const isArabic = language === "ar";
 
    const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -57,18 +60,18 @@ const LoginABlock = ({ onSubmit }) => {
   return (
     <div className="login-block1">
       <FontAwesomeIcon icon={faTimes} className="faicon1" onClick={handleIconClick} />
-      <h2>LOGIN</h2>
+      <h2>{i18n.t("loginText")}</h2>
       <form >
         <div className="form-group">
-          <label htmlFor="email" >Email:</label>
+          <label htmlFor="email" className={isArabic ? "label-arabic" : ""}>{i18n.t("emailLabelText")}</label>
           <input type="email" id="email" name="email" value={email}  onChange={handleEmailChange}/>
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password" className={isArabic ? "label-arabic" : ""}>{i18n.t("passwordLabelText")}</label>
           <input type="password" id="password" name="password" value={password} onChange={handlePasswordChange}/>
         </div>
       </form>
-      <button type="submit" onClick={handleLogin}>Login</button>
+      <button type="submit" onClick={handleLogin}>{i18n.t("loginText")}</button>
     </div>
   );
 };
