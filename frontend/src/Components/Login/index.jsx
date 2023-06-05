@@ -6,6 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import i18n from "../../i18n";
+import {redirectToDashboard} from "../../auth";
 
 const LoginBlock = ({ onSubmit }) => {
 
@@ -57,8 +58,8 @@ const LoginBlock = ({ onSubmit }) => {
       if (res.data.status == "success") {
          localStorage.setItem("token", res.data.token);
          localStorage.setItem("user_id", res.data.user._id);
-         navigate("/patients")
-
+         localStorage.setItem("role", res.data.user.role);
+         redirectToDashboard(navigate);
       }
     } catch (error) {
       console.error(error);
@@ -83,7 +84,7 @@ const LoginBlock = ({ onSubmit }) => {
     };
     try {
       const res = await axios(config);
-      if (res.data.status == "success" && res.data.user.role == "patient") {
+      if (res.data.status == "success") {
         setShowRegistration(false);
         localStorage.setItem('user_id', JSON.stringify(res.data.user._id));
         navigate("/login");

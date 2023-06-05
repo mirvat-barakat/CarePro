@@ -5,6 +5,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import i18n from "../../i18n";
+import {redirectToDashboard} from "../../auth";
 
 const LoginABlock = ({ onSubmit }) => {
 
@@ -41,10 +42,11 @@ const LoginABlock = ({ onSubmit }) => {
     console.log(data);
     try {
       const res = await axios(config);
-      if (res.data.status == "success" && res.data.user.role == "doctor") {
+      if (res.data.status == "success") {
          localStorage.setItem("token", res.data.token);
          localStorage.setItem("user_id", res.data.user._id);
-         navigate("/doctors");
+         localStorage.setItem("role", res.data.user.role);
+         redirectToDashboard(navigate);
 
       }
     } catch (error) {
